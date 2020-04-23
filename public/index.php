@@ -1,4 +1,35 @@
-<!doctype html>
+<?php
+
+use Entity\Announcement;
+use Entity\User;
+use Entity\Category;
+
+require '../vendor/autoload.php';
+
+$categoryOne = new Category();
+$categoryOne->id = 1;
+$categoryOne->name = "Nettoyage";
+
+$userAlp = new User();
+$userAlp->id = 1;
+$userAlp->nickname = "alp";
+$userAlp->password = "1noPassword2";
+$userAlp->email = "useralp@gmail.com";
+
+$announcement1 = new Announcement();
+$announcement1->id = 1;
+$announcement1->category = "Nettoyage";
+$announcement1->title = "Nettoyage de chantier";
+$announcement1->description = 'Lorem ipsum';
+$announcement1->price = "750€";
+$announcement1->creationDate = time();
+$announcement1->Category = $CategoryOne;
+$announcement1->user = $userAlp;
+
+$items = array($announcement1, $announcement2, $announcement3);
+
+?>
+
 <html lang="en">
 
 <head>
@@ -9,32 +40,34 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Evaluation Bootstrap - Alper AKBULUT</title>
+    <title>PHP/Symfony Project</title>
 </head>
 
 <body>
     <!-- NAV-BAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Le blog de l'architecte</a>
+            <a class="navbar-brand" href="#">ACCUEIL</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
+                <ul class="navbar-nav ml-auto">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#">ACCUEIL</a>
-                    </li>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher sur le blog" aria-label="Search">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
-                    </form>
-                    <li class="nav-item">
+                    </li> -->
+                    <div class="mr-3">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher sur le blog" aria-label="Search">
+                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
+                        </form>
+                    </div>
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#">CONTACT</a>
-                    </li>
-
+                    </li> -->
+                    <!-- 
                     <button class="btn btn-success" type="button">Sign In</button>
-                    <button class="btn btn-sm btn-secondary" type="button">Sing Up</button>
+                    <button class="btn btn-sm btn-secondary" type="button">Sing Up</button>-->
 
                     <div class="btn-group">
                         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,7 +84,7 @@
             </div>
         </div>
     </nav>
-    <!-- CARROUSEL -->
+    <!-- CARROUSEL
     <header class="container-fluid px-0">
         <div class="row">
             <div class="col">
@@ -75,11 +108,11 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
     <main class="container">
         <div class="row">
             <section class="col col-lg-8 order-md-2">
-                <!-- TITLE AND BREADCRUMB -->
+                <!-- TITLE AND BREADCRUMB  -->
                 <div class="row mt-3">
                     <div class="col">
                         <h1 class="font-weight-bolder">ARTICLES - CATEGORIE</h1>
@@ -95,88 +128,6 @@
                 <!-- ARTICLES -->
                 <div class="row">
                     <!-- ARTICLE 1 -->
-                    <!-- shadow p-3 mb-5 bg-white rounded -->
-                    <div class="col-lg-4 col-md-6 my-1">
-                        <div class="card">
-                            <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bolder mb-0">Titre de l'article</h5>
-                                <a href="#" class="badge badge-secondary">Sous catégorie</a>
-                                <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Minus(...)</p>
-                            </div>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Lire la suite</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ARTICLE 2 -->
-                    <!-- shadow p-3 mb-5 bg-white rounded -->
-                    <div class="col-lg-4 col-md-6 my-1">
-                        <div class="card">
-                            <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bolder mb-0">Titre de l'article</h5>
-                                <a href="#" class="badge badge-secondary">Sous catégorie</a>
-                                <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Minus(...)</p>
-                            </div>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Lire la suite</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ARTICLE 3 -->
-                    <!-- shadow p-3 mb-5 bg-white rounded -->
-                    <div class="col-lg-4 col-md-6 my-1">
-                        <div class="card">
-                            <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bolder mb-0">Titre de l'article</h5>
-                                <a href="#" class="badge badge-secondary">Sous catégorie</a>
-                                <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Minus(...)</p>
-                            </div>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Lire la suite</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ARTICLE 4 -->
-                    <!-- shadow p-3 mb-5 bg-white rounded -->
-                    <div class="col-lg-4 col-md-6 my-1">
-                        <div class="card">
-                            <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bolder mb-0">Titre de l'article</h5>
-                                <a href="#" class="badge badge-secondary">Sous catégorie</a>
-                                <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Minus(...)</p>
-                            </div>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Lire la suite</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ARTICLE 5 -->
-                    <!-- shadow p-3 mb-5 bg-white rounded -->
-                    <div class="col-lg-4 col-md-6 my-1">
-                        <div class="card">
-                            <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bolder mb-0">Titre de l'article</h5>
-                                <a href="#" class="badge badge-secondary">Sous catégorie</a>
-                                <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Minus(...)</p>
-                            </div>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Lire la suite</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- ARTICLE 6 -->
-                    <!-- shadow p-3 mb-5 bg-white rounded -->
                     <div class="col-lg-4 col-md-6 my-1">
                         <div class="card">
                             <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1">
@@ -196,12 +147,12 @@
             <!-- AUTHEUR -->
             <aside class="col col-lg-4  order-md-1 mt-3">
                 <div class="card border-0">
-                    <img src="https://i.pravatar.cc/100/100" class="card-img-top rounded-circle w-50 mx-auto" alt="image autheur">
-                    <div class="card-body text-center">
+                    <!-- <img src="https://i.pravatar.cc/100/100" class="card-img-top rounded-circle w-50 mx-auto" alt="image autheur"> -->
+                    <!-- <div class="card-body text-center">
                         <h5 class="card-title font-weight-bolder">John Doe</h5>
                         <p class="card-text">Diplômé de l'école d'architecture de Caen</p>
                         <button type="button" class="btn btn-info">Voir tous les articles</button>
-                    </div>
+                    </div> -->
                     <div class="card">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center">Sous-catégorie
@@ -286,7 +237,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script src="https://Announcement.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
