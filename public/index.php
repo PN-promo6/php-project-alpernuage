@@ -26,6 +26,26 @@ $announcement1->creationDate = time();
 $announcement1->Category = $CategoryOne;
 $announcement1->user = $userAlp;
 
+$announcement2 = new Announcement();
+$announcement2->id = 2;
+$announcement2->category = "Déménagement";
+$announcement2->title = "Déménagement dans la région";
+$announcement2->description = 'Lorem ipsum';
+$announcement2->price = "1250€";
+$announcement2->creationDate = time();
+$announcement2->Category = $CategoryOne;
+$announcement2->user = $userAlp;
+
+$announcement3 = new Announcement();
+$announcement3->id = 3;
+$announcement3->category = "Peinture";
+$announcement3->title = "Peinture maison";
+$announcement3->description = 'Lorem ipsum';
+$announcement3->price = "350€";
+$announcement3->creationDate = time();
+$announcement3->Category = $CategoryOne;
+$announcement3->user = $userAlp;
+
 $items = array($announcement1, $announcement2, $announcement3);
 
 ?>
@@ -128,20 +148,27 @@ $items = array($announcement1, $announcement2, $announcement3);
                 <!-- ARTICLES -->
                 <div class="row">
                     <!-- ARTICLE 1 -->
-                    <div class="col-lg-4 col-md-6 my-1">
-                        <div class="card">
-                            <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1">
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bolder mb-0">Titre de l'article</h5>
-                                <a href="#" class="badge badge-secondary">Sous catégorie</a>
-                                <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Minus(...)</p>
-                            </div>
-                            <div class="card-body">
-                                <a href="#" class="card-link">Lire la suite</a>
+
+                    <?php
+                    $items = array($announcement1, $announcement2, $announcement3);
+                    foreach ($items as $oneItem) {
+                    ?>
+
+                        <div class="col-lg-4 col-md-6 my-1">
+                            <div class="card">
+                                <!-- <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1"> -->
+                                <div class="card-body">
+                                    <h5 class="card-title font-weight-bolder mb-0"><?php echo $oneItem->title ?></h5>
+                                    <a href="#" class="badge badge-secondary"><?= $oneItem->category ?></a>
+                                    <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Minus(...)</p>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="card-link"><?php echo $oneItem->description ?></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </section>
             <!-- AUTHEUR -->
