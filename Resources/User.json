@@ -3,4 +3,14 @@
     "nickname": "alp",
     "password": "1noPassword2",
     "email": "useralp@gmail.com"
+}, {
+    "id": 2,
+    "nickname": "ludk",
+    "password": "aaaaaaaa",
+    "email": "userludk@gmail.com"
+}, {
+    "id": 3,
+    "nickname": "someone",
+    "password": "bbbbbbbb",
+    "email": "userwho@gmail.com"
 }]

@@ -5,8 +5,16 @@ use ludk\Persistence\ORM;
 
 require __DIR__ . '/../vendor/autoload.php';
 $orm = new ORM(__DIR__ . '/../Resources');
-$codeRepo = $orm->getRepository(Announcement::class);
-$items = $codeRepo->findAll();
+$announcementRepo = $orm->getRepository(Announcement::class);
+// $items = $announcementRepo->findAll();
+
+// Si le paramètre “search” est passé en GET filtrer les données remontées avec sa valeur.
+$items = array();
+if (isset($_GET['search'])) {
+    $items = $announcementRepo->findBy(array("content" => $_GET['search']));
+} else {
+    $items = $announcementRepo->findAll();
+}
 
 // require '../vendor/autoload.php';
 
@@ -171,7 +179,7 @@ $items = $codeRepo->findAll();
                                         </h5>
                                     </div>
                                     <div class="row">
-                                        <div class="col-7"> <a href="#" class="badge badge-secondary"><?= $oneItem->category ?></a>
+                                        <div class="col-7"> <a href="#" class="badge badge-secondary"><?= $oneItem->category->name ?></a>
                                         </div>
                                         <div class="col-5">
                                             <h6 class="text-right font-weight-bold" style="color:darkorange"><?= $oneItem->price ?></h6>

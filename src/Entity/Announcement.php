@@ -10,7 +10,7 @@ use ludk\Utils\Serializer;
 class Announcement
 {
     public $id;
-    public $category;
+    public Category $category;
     public $title;
     public $description;
     public $price;
