@@ -22,7 +22,7 @@ $announcement1->category = "Nettoyage";
 $announcement1->title = "Nettoyage de chantier";
 $announcement1->description = 'Lorem ipsum';
 $announcement1->price = "750€";
-$announcement1->creationDate = time();
+$announcement1->creationDate = '01-04-2020';
 $announcement1->Category = $CategoryOne;
 $announcement1->user = $userAlp;
 
@@ -32,7 +32,7 @@ $announcement2->category = "Déménagement";
 $announcement2->title = "Déménagement dans la région";
 $announcement2->description = 'Lorem ipsum';
 $announcement2->price = "1250€";
-$announcement2->creationDate = time();
+$announcement2->creationDate = "06-03-2020";
 $announcement2->Category = $CategoryOne;
 $announcement2->user = $userAlp;
 
@@ -42,7 +42,7 @@ $announcement3->category = "Peinture";
 $announcement3->title = "Peinture maison";
 $announcement3->description = 'Lorem ipsum';
 $announcement3->price = "350€";
-$announcement3->creationDate = time();
+$announcement3->creationDate = "27-04-2020";
 $announcement3->Category = $CategoryOne;
 $announcement3->user = $userAlp;
 
@@ -154,17 +154,34 @@ $items = array($announcement1, $announcement2, $announcement3);
                     foreach ($items as $oneItem) {
                     ?>
 
-                        <div class="col-lg-4 col-md-6 my-1">
-                            <div class="card">
+                        <div class="col-lg-4 my-1">
+                            <div class="card mb-2 h-100">
                                 <!-- <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1"> -->
                                 <div class="card-body">
-                                    <h5 class="card-title font-weight-bolder mb-0"><?php echo $oneItem->title ?></h5>
-                                    <a href="#" class="badge badge-secondary"><?= $oneItem->category ?></a>
-                                    <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Minus(...)</p>
+                                    <div style="height: 3.5rem;">
+                                        <h5 class="card-title font-weight-bolder"><?php echo $oneItem->title ?>
+                                        </h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-7"> <a href="#" class="badge badge-secondary"><?= $oneItem->category ?></a>
+                                        </div>
+                                        <div class="col-5">
+                                            <h6 class="text-right font-weight-bold" style="color:darkorange"><?= $oneItem->price ?></h6>
+                                        </div>
+                                    </div>
+
+                                    <!-- <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Minus(...)</p> -->
                                 </div>
                                 <div class="card-body">
                                     <a href="#" class="card-link"><?php echo $oneItem->description ?></a>
+                                    <p class="card-text"><small class="text-muted">
+                                            <?php
+                                            $oneItem->creationDate = strtotime($oneItem->creationDate);
+                                            echo date('d F', $oneItem->creationDate);
+                                            ?>
+                                        </small></p>
+
                                 </div>
                             </div>
                         </div>
