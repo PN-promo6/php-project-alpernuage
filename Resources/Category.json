@@ -1,0 +1,13 @@
+[{
+        "id": 1,
+        "name": "Nettoyage"
+    },
+    {
+        "id": 2,
+        "name": "Déménagement"
+    },
+    {
+        "id": 3,
+        "name": "Peinture"
+    }
+]

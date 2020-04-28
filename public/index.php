@@ -1,52 +1,60 @@
 <?php
 
 use Entity\Announcement;
-use Entity\User;
-use Entity\Category;
+use ludk\Persistence\ORM;
 
-require '../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
+$orm = new ORM(__DIR__ . '/../Resources');
+$codeRepo = $orm->getRepository(Announcement::class);
+$items = $codeRepo->findAll();
 
-$categoryOne = new Category();
-$categoryOne->id = 1;
-$categoryOne->name = "Nettoyage";
+// require '../vendor/autoload.php';
 
-$userAlp = new User();
-$userAlp->id = 1;
-$userAlp->nickname = "alp";
-$userAlp->password = "1noPassword2";
-$userAlp->email = "useralp@gmail.com";
+// use Entity\Announcement;
+// use Entity\User;
+// use Entity\Category;
 
-$announcement1 = new Announcement();
-$announcement1->id = 1;
-$announcement1->category = "Nettoyage";
-$announcement1->title = "Nettoyage de chantier";
-$announcement1->description = 'Lorem ipsum';
-$announcement1->price = "750€";
-$announcement1->creationDate = '01-04-2020';
-$announcement1->Category = $CategoryOne;
-$announcement1->user = $userAlp;
+// $categoryOne = new Category();
+// $categoryOne->id = 1;
+// $categoryOne->name = "Nettoyage";
 
-$announcement2 = new Announcement();
-$announcement2->id = 2;
-$announcement2->category = "Déménagement";
-$announcement2->title = "Déménagement dans la région";
-$announcement2->description = 'Lorem ipsum';
-$announcement2->price = "1250€";
-$announcement2->creationDate = "06-03-2020";
-$announcement2->Category = $CategoryOne;
-$announcement2->user = $userAlp;
+// $userAlp = new User();
+// $userAlp->id = 1;
+// $userAlp->nickname = "alp";
+// $userAlp->password = "1noPassword2";
+// $userAlp->email = "useralp@gmail.com";
 
-$announcement3 = new Announcement();
-$announcement3->id = 3;
-$announcement3->category = "Peinture";
-$announcement3->title = "Peinture maison";
-$announcement3->description = 'Lorem ipsum';
-$announcement3->price = "350€";
-$announcement3->creationDate = "27-04-2020";
-$announcement3->Category = $CategoryOne;
-$announcement3->user = $userAlp;
+// $announcement1 = new Announcement();
+// $announcement1->id = 1;
+// $announcement1->category = "Nettoyage";
+// $announcement1->title = "Nettoyage de chantier";
+// $announcement1->description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos consequatur debitis rem ab fugit!";
+// $announcement1->price = "750€";
+// $announcement1->creationDate = '01-05-2020';
+// $announcement1->Category = $CategoryOne;
+// $announcement1->user = $userAlp;
 
-$items = array($announcement1, $announcement2, $announcement3);
+// $announcement2 = new Announcement();
+// $announcement2->id = 2;
+// $announcement2->category = "Déménagement";
+// $announcement2->title = "Déménagement dans la région";
+// $announcement2->description = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste quia dolorem harum ea?";
+// $announcement2->price = "1250€";
+// $announcement2->creationDate = "06-03-2020";
+// $announcement2->Category = $CategoryOne;
+// $announcement2->user = $userAlp;
+
+// $announcement3 = new Announcement();
+// $announcement3->id = 3;
+// $announcement3->category = "Peinture";
+// $announcement3->title = "Peinture maison";
+// $announcement3->description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, voluptatibus placeat quos doloremque alias tempore totam similique voluptates eaque?";
+// $announcement3->price = "350€";
+// $announcement3->creationDate = "27-04-2020";
+// $announcement3->Category = $CategoryOne;
+// $announcement3->user = $userAlp;
+
+// $items = array($announcement1, $announcement2, $announcement3);
 
 ?>
 
@@ -156,7 +164,7 @@ $items = array($announcement1, $announcement2, $announcement3);
 
                         <div class="col-lg-4 my-1">
                             <div class="card mb-2 h-100">
-                                <!-- <img src="http://placeimg.com/300/200/tech/1" class="card-img-top" alt="article1"> -->
+                                <img src="https://placeimg.com/300/200/arch" class="card-img-top" alt="article1">
                                 <div class="card-body">
                                     <div style="height: 3.5rem;">
                                         <h5 class="card-title font-weight-bolder"><?php echo $oneItem->title ?>
@@ -169,12 +177,12 @@ $items = array($announcement1, $announcement2, $announcement3);
                                             <h6 class="text-right font-weight-bold" style="color:darkorange"><?= $oneItem->price ?></h6>
                                         </div>
                                     </div>
-
-                                    <!-- <p class="card-text d-none">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Minus(...)</p> -->
+                                    <p style="overflow:hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; /* number of lines to show */   -webkit-box-orient: vertical;" class="card-text">
+                                        <?php echo $oneItem->description ?>
+                                    </p>
                                 </div>
-                                <div class="card-body">
-                                    <a href="#" class="card-link"><?php echo $oneItem->description ?></a>
+                                <div class="card-body pt-0">
+                                    <a href="#" class="card-link">Lire la suite</a>
                                     <p class="card-text"><small class="text-muted">
                                             <?php
                                             $oneItem->creationDate = strtotime($oneItem->creationDate);
