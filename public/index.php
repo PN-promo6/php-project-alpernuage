@@ -158,7 +158,7 @@ $items = $codeRepo->findAll();
                     <!-- ARTICLE 1 -->
 
                     <?php
-                    $items = array($announcement1, $announcement2, $announcement3);
+                    // $items = array($announcement1, $announcement2, $announcement3);
                     foreach ($items as $oneItem) {
                     ?>
 
