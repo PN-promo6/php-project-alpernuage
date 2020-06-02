@@ -9,12 +9,12 @@ use ludk\Utils\Serializer;
 
 class Announcement
 {
-    public $id;
+    public int $id;
     public Category $category;
-    public $title;
-    public $description;
-    public $price;
-    public $creationDate;
+    public string $title;
+    public string $description;
+    public string $price;
+    public string $creationDate;
     public User $user;
 
     use Serializer;

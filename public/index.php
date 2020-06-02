@@ -4,9 +4,18 @@ use Entity\Announcement;
 use ludk\Persistence\ORM;
 
 require __DIR__ . '/../vendor/autoload.php';
+session_start();
 $orm = new ORM(__DIR__ . '/../Resources');
 $announcementRepo = $orm->getRepository(Announcement::class);
 // $items = $announcementRepo->findAll();
+$manager = $orm->getManager();
+
+$item = $announcementRepo->find(1);
+$item->title = "New title";
+$manager->persist($item);
+$manager->flush();
+
+$items = $announcementRepo->findAll();
 
 // Si le paramètre “search” est passé en GET filtrer les données remontées avec sa valeur.
 $items = array();

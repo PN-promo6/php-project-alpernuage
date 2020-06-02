@@ -6,8 +6,8 @@ use ludk\Utils\Serializer;
 
 class Category
 {
-    public $id;
-    public $name;
+    public int $id;
+    public string $name;
 
     use Serializer;
 }
