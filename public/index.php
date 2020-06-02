@@ -8,12 +8,13 @@ session_start();
 $orm = new ORM(__DIR__ . '/../Resources');
 $announcementRepo = $orm->getRepository(Announcement::class);
 // $items = $announcementRepo->findAll();
-$manager = $orm->getManager();
 
-$item = $announcementRepo->find(1);
-$item->title = "New title";
-$manager->persist($item);
-$manager->flush();
+// $manager = $orm->getManager();
+
+// $item = $announcementRepo->find(1);
+// $item->title = "New title";
+// $manager->persist($item);
+// $manager->flush();
 
 $items = $announcementRepo->findAll();
 
@@ -102,8 +103,8 @@ if (isset($_GET['search'])) {
                         <a class="nav-link" href="#">ACCUEIL</a>
                     </li> -->
                     <div class="mr-3">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher sur le blog" aria-label="Search">
+                        <form class="form-inline my-2 my-lg-0" action="search">
+                            <input class="form-control mr-sm-2" type="search" name="search" placeholder="Rechercher sur le blog" aria-label="Search">
                             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
                         </form>
                     </div>
@@ -200,6 +201,11 @@ if (isset($_GET['search'])) {
                                 </div>
                                 <div class="card-body pt-0">
                                     <a href="#" class="card-link">Lire la suite</a>
+
+                                    <!-- SEARCH -->
+
+
+                                    <!-- DATE -->
                                     <p class="card-text"><small class="text-muted">
                                             <?php
                                             $oneItem->creationDate = strtotime($oneItem->creationDate);
