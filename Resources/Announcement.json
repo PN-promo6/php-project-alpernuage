@@ -5,7 +5,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos consequatur debitis rem ab fugit!",
         "price": "750€",
         "creationDate": "01-05-2020",
-        "user": 2
+        "user": 1
     },
     {
         "id": 2,
@@ -14,7 +14,7 @@
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste quia dolorem harum ea?",
         "price": "1250€",
         "creationDate": "06-03-2020",
-        "user": 1
+        "user": 2
     },
     {
         "id": 3,
