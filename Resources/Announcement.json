@@ -1,13 +1,14 @@
 [{
-        "id": "1",
+        "id": 1,
         "category": 1,
         "title": "Nettoyage de chantier",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum dignissimos consequatur debitis rem ab fugit!",
         "price": "750€",
-        "creationDate": "01-05-2020"
+        "creationDate": "01-05-2020",
+        "user": 2
     },
     {
-        "id": "2",
+        "id": 2,
         "category": 2,
         "title": "Déménagement dans la région",
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste quia dolorem harum ea?",
@@ -21,6 +22,7 @@
         "title": "Peinture maison",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iure, voluptatibus placeat quos doloremque alias tempore totam similique voluptates eaque?",
         "price": "350€",
-        "creationDate": "27-04-2020"
+        "creationDate": "27-04-2020",
+        "user": 3
     }
 ]
