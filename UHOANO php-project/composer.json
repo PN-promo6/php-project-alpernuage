@@ -1,0 +1,10 @@
+{
+    "require": {
+        "ludonkey/tinymvc": "@dev"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}

@@ -38,9 +38,12 @@
                     <button class="btn btn-sm btn-secondary" type="button">Sing Up</button>-->
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            LOGIN
-                        </button>
+                        <form action="/">
+                            <input type="hidden" name="action" value="login">
+                            <button type="submit" class="btn btn-success" aria-haspopup="true" aria-expanded="false">
+                                LOGIN
+                            </button>
+                        </form>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Sign In</a>
                             <a class="dropdown-item" href="#">Sing Up</a>
